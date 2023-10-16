@@ -3,6 +3,7 @@ import axioss from "../server";
 import { useEffect, useState } from "react";
 import HomePagePopularCards from "../components/cards/HomePagePopularCards";
 import HpccHolder from "../components/Holder/HpccHolder";
+import axios from "axios";
 // import HomePageCategoryCards from "../components/cards/HomePageCategoryCards";
 // import axios from "axios";
 
@@ -16,15 +17,12 @@ const HomePage = () => {
       try {
         const { data: postData } = await axioss.get("post/lastone");
         setLastPostData(postData);
+        console.log(postData);
 
-        // const { data: imageData } = await axios.get(
-        //   "https://ap-blog-backend.up.railway.app/upload/652ba7f68250799c53132b10.jpg"
-        // );
-        // console.log(imageData);
-        // settheImageData(imageData)
-
-        // Set the image data to homePagebackground
-        // setHomePageBackground(`url(${imageData})`);
+        const { data: imageData } = await axios.get(
+          `https://ap-blog-backend.up.railway.app/upload/${postData._id}.jpg`
+        );
+        console.log(imageData);
       } catch (err) {
         // console.log(err);
       }
@@ -45,7 +43,7 @@ const HomePage = () => {
             className="home-page-hero"
             // style={{ backgroundImage: homePagebackground }}
             style={{
-              backgroundImage: `${"/public/gp-hero-bg.png"}`, // Set the image data here
+              // backgroundImage: `${"/public/gp-hero-bg.png"}`, // Set the image data here
               backgroundSize: "cover", // You can customize other background properties here
               backgroundRepeat: "no-repeat",
             }}
@@ -64,7 +62,7 @@ const HomePage = () => {
             </p>
             <p className="hp-hero-description">{lastPostData.description}</p>
             <Link
-              to={`blogpost/:${lastPostData?._id}`}
+              to={`blogpost/${lastPostData?._id}`}
               className="hp-hero-link-end"
             >
               Read More {">"}

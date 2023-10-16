@@ -51,3 +51,5 @@ export default App
 // heruub iuv 44ifv4 f44y f4fy4v fh4uf
 
 // done some pages at 8:42 pm
+
+//  left is the getting data via the id

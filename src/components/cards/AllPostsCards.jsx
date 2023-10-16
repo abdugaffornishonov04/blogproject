@@ -1,20 +1,68 @@
-const AllPostsCards = () => {
+// import PropTypes from "prop-types";
+// import { Fragment } from "react";
+
+// const AllPostsCards = ({ data }) => (
+
+//     const handleNavigate = (id) => {
+//     return <Navigate to={`/other-route/${id}`} />;
+//   };
+//   <Fragment>
+//     {data.map((el, i) => (
+//       <div key={i} onClick={() => handleNavigate({el._id})} className="all-posts-card">
+//         <div className="cpmcc-img">
+//           <img src="" alt="" />
+//         </div>
+//         <div className="cpmpcc-content">
+//           <p className="cpmpccc-subtext">{el.category.name}</p>
+//           <h3 className="cpmccc-title">{el.title}</h3>
+//           <p className="cpmccc-description">{el.description}</p>
+//         </div>
+//       </div>
+//     ))}
+//   </Fragment>
+// );
+
+// AllPostsCards.propTypes = {
+//   data: PropTypes.array,
+// };
+
+// export default AllPostsCards;
+
+import PropTypes from "prop-types";
+import { Fragment } from "react";
+import {  useNavigate } from "react-router-dom";
+
+const AllPostsCards = ({ data }) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (id) => {
+    navigate(`/blogpost/${id}`);
+  };
+
   return (
-    <div className="all-posts-card">
-      <div className="cpmcc-img">
-        <img src="" alt="" />
-      </div>
-      <div className="cpmpcc-content">
-        <p className="cpmpccc-subtext">Business</p>
-        <h3 className="cpmccc-title">Top 6 free website mockup tools 2022</h3>
-        <p className="cpmccc-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Non
-          blandit massa enim nec.
-        </p>
-      </div>
-    </div>
+    <Fragment>
+      {data.map((el, i) => (
+        <div
+          key={i}
+          onClick={() => handleNavigate(el._id)} // Pass el._id, not {el._id}
+          className="all-posts-card"
+        >
+          <div className="cpmcc-img">
+            <img src="" alt="" />
+          </div>
+          <div className="cpmpcc-content">
+            <p className="cpmpccc-subtext">{el.category.name}</p>
+            <h3 className="cpmccc-title">{el.title}</h3>
+            <p className="cpmccc-description">{el.description}</p>
+          </div>
+        </div>
+      ))}
+    </Fragment>
   );
+};
+
+AllPostsCards.propTypes = {
+  data: PropTypes.array,
 };
 
 export default AllPostsCards;

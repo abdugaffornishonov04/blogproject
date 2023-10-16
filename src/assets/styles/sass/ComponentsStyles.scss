@@ -9,6 +9,7 @@
   flex-direction: column;
   border: 1px solid #ccc;
   height: 700px;
+  cursor: pointer;
 
   .hppc-image {
     width: 100%;
@@ -61,7 +62,8 @@
 .hpc-category-cards {
   padding: 31px;
   width: 296px;
-  height: 221.072px;
+  height: 400px;
+  margin-right: 10px;
   flex-shrink: 0;
   border: 1px solid #6D6E76;
   cursor: pointer;
@@ -110,6 +112,7 @@
 .cpmc-card {
   display: flex;
   gap: 48px;
+  margin-bottom: 20px;
 
   .cpmcc-img {
     width: 448px;
@@ -161,6 +164,7 @@
 
 .all-posts-card {
   display: flex;
+  margin-top: 32px;
   gap: 48px;
 
   .cpmcc-img {

@@ -1,27 +1,12 @@
-// const HomePageCategoryCards = () => {
-  
-//   return (
-    // <div className="hpc-category-cards">
-    //   <div className="hpccc-image">
-    //     <img src="" alt="" />
-    //   </div>
-    //   <h4 className="hpccc-title">Business</h4>
-    //   <p className="hpccc-desc">
-    //     Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    //   </p>
-    // </div>
-//   );
-// }
-
-// export default HomePageCategoryCards
-
-import  { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import axioss from "../../server";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 const HomePageCategoryCards = () => {
+  const navigate = useNavigate();
   const [popularOnesPostData, setPopularOnesPostData] = useState([]);
 
   useEffect(() => {
@@ -29,7 +14,7 @@ const HomePageCategoryCards = () => {
       try {
         const { data: data2 } = await axioss.get("category");
         setPopularOnesPostData(data2.data);
-        console.log(data2.data);
+        // console.log(data2.data);
       } catch (err) {
         // Handle errors
       }
@@ -37,6 +22,11 @@ const HomePageCategoryCards = () => {
 
     getHomePageDataCategory();
   }, []);
+
+  const directTocategory = (id) => {
+    navigate(`/category/${id}`);
+    // console.log(id);
+  };
 
   const slickSettings = {
     dots: true,
@@ -50,7 +40,11 @@ const HomePageCategoryCards = () => {
     <Fragment>
       <Slider {...slickSettings}>
         {popularOnesPostData.map((el, i) => (
-          <div key={i} className="hpc-category-cards">
+          <div
+            onClick={() => directTocategory(el._id)}
+            key={i}
+            className="hpc-category-cards"
+          >
             <div className="hpccc-image">
               <img src="" alt="" />
             </div>
@@ -68,3 +62,4 @@ const HomePageCategoryCards = () => {
 
 export default HomePageCategoryCards;
 
+// apparently done
