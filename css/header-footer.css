@@ -1,0 +1,96 @@
+.header {
+  width: 100%;
+  background-color: #232536 !important;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 80px;
+  padding-right: 80px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 111;
+}
+.header .header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .header-wrapper .header-logo img {
+  width: 140px;
+  height: 30px;
+}
+.header .header-wrapper .header-logo .header-logo-text {
+  color: #FFD050 !important;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+.header .header-wrapper .header-navbar {
+  display: flex;
+  align-items: center;
+  gap: 83px;
+}
+.header .header-wrapper .header-navbar ul {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.header .header-wrapper .header-navbar ul li .header-link {
+  color: var(--Light, #FFF);
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+.header .header-wrapper .header-navbar .header-login-navigate {
+  padding: 16px 48px;
+  gap: 12px;
+  background-color: #fff;
+  color: #232536 !important;
+  font-family: "Sen";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  transition: 0.5s;
+}
+.header .header-wrapper .header-navbar .header-login-navigate:hover {
+  box-shadow: 0px 0px 0px 5px rgb(255, 255, 255);
+  -webkit-box-shadow: 0px 0px 0px 5px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 0px 5px rgb(255, 255, 255);
+}
+
+.footer {
+  padding-top: 54px;
+  padding-bottom: 54px;
+  background-color: #232536 !important;
+}
+.footer .footer-wrapper {
+  padding-left: 80px;
+  padding-right: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .footer-wrapper .footer-addresses {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footer-wrapper .footer-addresses p {
+  color: #fff;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  opacity: 0.7;
+}
+.footer .footer-wrapper .footer-link-icons {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}

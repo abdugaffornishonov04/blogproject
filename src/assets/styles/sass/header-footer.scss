@@ -1,0 +1,119 @@
+$bg-color: #232536 !important;
+$secColor: #FFD050 !important;
+;
+
+
+.header {
+  width: 100%;
+  background-color: $bg-color;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 80px;
+  padding-right: 80px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 111;
+
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-logo {
+      img {
+        width: 140px;
+        height: 30px;
+      }
+
+      .header-logo-text {
+        color: $secColor;
+        font-family: "Inter";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+      }
+    }
+
+    .header-navbar {
+      display: flex;
+      align-items: center;
+      gap: 83px;
+
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        li {
+          .header-link {
+            color: var(--Light, #FFF);
+            font-family: "Inter";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px;
+          }
+        }
+      }
+
+      .header-login-navigate {
+        padding: 16px 48px;
+        gap: 12px;
+        background-color: #fff;
+        color: $bg-color;
+        font-family: "Sen";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        transition: 0.5s;
+
+        &:hover {
+          box-shadow: 0px 0px 0px 5px rgba(255, 255, 255);
+          -webkit-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255);
+          -moz-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255);
+        }
+      }
+    }
+
+
+  }
+}
+
+.footer {
+  padding-top: 54px;
+  padding-bottom: 54px;
+  background-color: $bg-color;
+
+  .footer-wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .footer-addresses {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        color: #fff;
+        font-family: "Inter";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        opacity: 0.7;
+      }
+    }
+
+    .footer-link-icons {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+  }
+}
