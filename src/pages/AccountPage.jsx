@@ -117,7 +117,7 @@ const AccountPage = () => {
                   <input
                     onChange={changeOfForm}
                     type="text"
-                    value={changedAccountInfo.first_name}
+                    value={accountData.first_name}
                     name="accountFirstName"
                     id="accountFirstName"
                     placeholder="Firstname"
@@ -127,7 +127,7 @@ const AccountPage = () => {
                   <input
                     onChange={changeOfForm}
                     type="text"
-                    value={changedAccountInfo.last_name}
+                    value={accountData.last_name}
                     name="accountLastName"
                     id="accountLastName"
                     placeholder="Lastname"
@@ -137,7 +137,7 @@ const AccountPage = () => {
                   <input
                     onChange={changeOfForm}
                     type="text"
-                    value={changedAccountInfo.username}
+                    value={accountData.username}
                     name="accountUsername"
                     id="accountUsername"
                     placeholder="Username"
@@ -147,7 +147,7 @@ const AccountPage = () => {
                   <input
                     onChange={changeOfForm}
                     type="email"
-                    value={changedAccountInfo.email}
+                    value={accountData.email}
                     name="accountEmail"
                     id="accountEmail"
                     placeholder="Email"
@@ -157,7 +157,7 @@ const AccountPage = () => {
                   <input
                     onChange={changeOfForm}
                     type="text"
-                    value={changedAccountInfo.address}
+                    value={accountData.address}
                     name="accountAddress"
                     id="accountAddress"
                     placeholder="Address"
@@ -167,7 +167,7 @@ const AccountPage = () => {
                   <input
                     onChange={changeOfForm}
                     type="date"
-                    value={changedAccountInfo.birthday}
+                    value={birthday}
                     name="accountBirthday"
                     id="accountBirthday"
                     placeholder="Birthday"
