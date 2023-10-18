@@ -56,7 +56,7 @@ const HomePage = () => {
               By &nbsp;
               <span>
                 {lastPostData?.user?.first_name || "John"} &nbsp;
-                {lastPostData?.user?.last_name || "Doe"}
+                {lastPostData?.user?.last_name || "Doe"} &nbsp;
               </span>
               | {lastPostData?.category?.updatedAt?.split("T")[0]}
             </p>
@@ -103,3 +103,5 @@ export default HomePage;
 
 // before adding slick which is slider 1 2 4 5 6 7 8 9 10 11 n
 //  slider of popular cards is done 1 2 3  4 5  6
+
+// doing responsive

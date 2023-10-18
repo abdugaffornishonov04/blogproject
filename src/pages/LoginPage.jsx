@@ -7,8 +7,8 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const navigate = useNavigate()
-  const {setIsAuthenticated} = useContext(AuthContext)
+  const navigate = useNavigate();
+  const { setIsAuthenticated } = useContext(AuthContext);
   const loginFormSubmitFunc = async (e) => {
     try {
       e.preventDefault();
@@ -17,16 +17,25 @@ const LoginPage = () => {
 
       let user = {
         username: e.target.loginUsername.value,
-        password: e.target.loginPassword.value, 
+        password: e.target.loginPassword.value,
       };
+      localStorage.setItem("userPasswordLogin", e.target.loginUsername.value);
 
-     let {data: {token}} = await axioss.post("auth/login", user);
+      let {
+        data: { token },
+      } = await axioss.post("auth/login", user);
       console.log(token);
-      Cookies.set(TOKEN, token);
-      setIsAuthenticated(true)
-      navigate("/myposts")
 
-      toast.success(`Greetings - ${(e.target.loginUsername.value)}`);
+      Cookies.set(TOKEN, token);
+      setIsAuthenticated(true);
+      navigate("/myposts");
+
+      toast.success(
+        `Welcome back - ${
+          e.target.loginUsername.value.charAt(0).toUpperCase() +
+          e.target.loginUsername.value.slice(1)
+        }`
+      );
     } catch (err) {
       toast.error("No user found 😔");
       console.log(err.message);
@@ -67,3 +76,6 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+//  all ok apparently
+// updated toast

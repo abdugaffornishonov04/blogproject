@@ -5,6 +5,7 @@ import axioss from "../server";
 const AllPostsPage = () => {
   const [appData, setAppData] = useState([]);
   const [aPSearch, setAPSearch] = useState("");
+  const [seeMoreClickedFalse, setSMCFalse] = useState(false);
 
   useEffect(() => {
     const cpcAxios = async () => {
@@ -23,20 +24,28 @@ const AllPostsPage = () => {
     cpcAxios();
   }, [aPSearch]);
 
-  // Handle search input changes
+
   const handleApSearch = (event) => {
     setAPSearch(event.target.value);
   };
 
   console.log(aPSearch);
 
-  // Filter appData based on the search input
   const filteredData = appData.filter((item) =>
     item.title.toLowerCase().includes(aPSearch.toLowerCase())
   );
 
+  const firstFour = filteredData.slice(0, 3);
+
+  
+  const seeAllClicked = () => {
+    setSMCFalse(true)
+  }
+  const seeAllClickedTwice = () => {
+    setSMCFalse(false);
+  };
   return (
-    <section className="all-posts-page container">
+    <section className="all-posts-page ">
       <div className="app-search">
         <input
           onChange={handleApSearch}
@@ -47,7 +56,23 @@ const AllPostsPage = () => {
       </div>
       <h2 className="app-title">All posts</h2>
       <div className="app-cards-wrapper">
-        <AllPostsCards data={filteredData} />
+        {seeMoreClickedFalse ? (
+          <AllPostsCards data={filteredData} />
+        ) : (
+          <AllPostsCards data={firstFour} />
+        )}
+
+        <div className="see-more-wrapper">
+          {seeMoreClickedFalse ? (
+            <button className="see-more-app" onClick={seeAllClickedTwice}>
+              Show little...
+            </button>
+          ) : (
+            <button className="see-more-app" onClick={seeAllClicked}>
+              See All...
+            </button>
+          )}
+        </div>
       </div>
     </section>
   );
@@ -56,6 +81,10 @@ const AllPostsPage = () => {
 export default AllPostsPage;
 
 // on the way of pagination 
+//  start of see more
+//  end of see more. 1 2 3 45 6 
+
+
 
 
 

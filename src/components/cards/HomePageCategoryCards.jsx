@@ -3,10 +3,9 @@ import axioss from "../../server";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HomePageCategoryCards = () => {
-  const navigate = useNavigate();
   const [popularOnesPostData, setPopularOnesPostData] = useState([]);
 
   useEffect(() => {
@@ -23,10 +22,7 @@ const HomePageCategoryCards = () => {
     getHomePageDataCategory();
   }, []);
 
-  const directTocategory = (id) => {
-    navigate(`/category/${id}`);
-    // console.log(id);
-  };
+
 
   const slickSettings = {
     dots: true,
@@ -34,25 +30,26 @@ const HomePageCategoryCards = () => {
     speed: 500,
     slidesToShow: 3, // Number of slides to show at once
     slidesToScroll: 1,
+    autoplay:true,
   };
 
   return (
     <Fragment>
       <Slider {...slickSettings}>
         {popularOnesPostData.map((el, i) => (
-          <div
-            onClick={() => directTocategory(el._id)}
-            key={i}
-            className="hpc-category-cards"
-          >
+          <div key={i} className="hpc-category-cards">
             <div className="hpccc-image">
-              <img src="" alt="" />
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStbLIpn3aJSwpeFlX7tfLUZJp-S50s5Kdl2g&usqp=CAU"
+                alt="category image"
+              />
             </div>
             <h4 className="hpccc-title">{el.name}</h4>
             <p className="hpccc-desc">
-              {el._id}
-              {el.description}
+              {/* {el._id} */}
+              {el.description.slice(0, 40)}
             </p>
+            <Link className="hpccc-kink-to" to={`/category/${el._id}`}>See the category...</Link>
           </div>
         ))}
       </Slider>
@@ -63,3 +60,5 @@ const HomePageCategoryCards = () => {
 export default HomePageCategoryCards;
 
 // apparently done
+
+//  changin link 12 3 423 54 3433443

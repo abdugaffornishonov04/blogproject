@@ -1,33 +1,3 @@
-// import PropTypes from "prop-types";
-// import { Fragment } from "react";
-
-// const AllPostsCards = ({ data }) => (
-
-//     const handleNavigate = (id) => {
-//     return <Navigate to={`/other-route/${id}`} />;
-//   };
-//   <Fragment>
-//     {data.map((el, i) => (
-//       <div key={i} onClick={() => handleNavigate({el._id})} className="all-posts-card">
-//         <div className="cpmcc-img">
-//           <img src="" alt="" />
-//         </div>
-//         <div className="cpmpcc-content">
-//           <p className="cpmpccc-subtext">{el.category.name}</p>
-//           <h3 className="cpmccc-title">{el.title}</h3>
-//           <p className="cpmccc-description">{el.description}</p>
-//         </div>
-//       </div>
-//     ))}
-//   </Fragment>
-// );
-
-// AllPostsCards.propTypes = {
-//   data: PropTypes.array,
-// };
-
-// export default AllPostsCards;
-
 import PropTypes from "prop-types";
 import { Fragment } from "react";
 import {  useNavigate } from "react-router-dom";
@@ -48,12 +18,14 @@ const AllPostsCards = ({ data }) => {
           className="all-posts-card"
         >
           <div className="cpmcc-img">
-            <img src="" alt="" />
+            <img src="https://picsum.photos/200/300" alt="" />
           </div>
           <div className="cpmpcc-content">
             <p className="cpmpccc-subtext">{el.category.name}</p>
-            <h3 className="cpmccc-title">{el.title}</h3>
-            <p className="cpmccc-description">{el.description}</p>
+            <h3 className="cpmccc-title">
+              {el.title.charAt(0).toUpperCase() + el.title.slice(1)}
+            </h3>
+            <p className="cpmccc-description">{el.description.slice(0, 100)}</p>
           </div>
         </div>
       ))}
@@ -66,3 +38,5 @@ AllPostsCards.propTypes = {
 };
 
 export default AllPostsCards;
+
+// apparently everthing is ok

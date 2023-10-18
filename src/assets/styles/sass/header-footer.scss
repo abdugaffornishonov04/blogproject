@@ -16,6 +16,11 @@ $secColor: #FFD050 !important;
   left: 0;
   z-index: 111;
 
+  @media(max-width:850px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .header-wrapper {
     display: flex;
     justify-content: space-between;
@@ -41,6 +46,12 @@ $secColor: #FFD050 !important;
       display: flex;
       align-items: center;
       gap: 83px;
+      position: relative;
+
+      @media(max-width:850px) {
+        display: none;
+      }
+
 
       ul {
         display: flex;
@@ -77,8 +88,68 @@ $secColor: #FFD050 !important;
           -moz-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255);
         }
       }
+
+      // .header-logout-btn {
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   width: 70px;
+      //   height: 70px;
+      //   position: fixed;
+      //   bottom: 50px;
+      //   left:10px;
+      //   padding: 12px 20px;
+      //   font-family: "Inter";
+      //   border:none;
+      //   border-radius: 50%;
+      //   cursor: pointer;
+      //   background-color: $bg-color;
+      //   color:$secColor;
+      // }
+
+      @keyframes rotateButton {
+        0% {
+          transform: rotateY(0deg);
+        }
+
+        100% {
+          transform: rotateY(360deg)
+        }
+      }
+
+      .header-logout-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        position: fixed;
+        bottom: 50px;
+        left: 10px;
+        padding: 12px 20px;
+        font-family: "Inter";
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: $bg-color;
+        color: $secColor;
+        animation: rotateButton 5s linear infinite;
+        // animation-delay: 10s;
+        /* Delay the start of the animation by 10 seconds */
+      }
+
     }
 
+    .header-hamburger {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      display: none;
+
+      @media(max-width:850px) {
+        display: block;
+      }
+    }
 
   }
 }
@@ -94,6 +165,14 @@ $secColor: #FFD050 !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media(max-width:700px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      text-align: center;
+    }
 
     .footer-addresses {
       display: flex;
@@ -117,3 +196,8 @@ $secColor: #FFD050 !important;
     }
   }
 }
+
+//  doing the responsive
+// responsive done for header in terms of scroll. Left is toggle | also footer
+
+//  adding header logout as position fixed

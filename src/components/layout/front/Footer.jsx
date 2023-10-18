@@ -29,3 +29,5 @@ const Footer = () => {
 }
 
 export default Footer
+
+// doing the responsive 1 2 3 45 6 

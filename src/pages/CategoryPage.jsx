@@ -7,7 +7,8 @@ const CategoryPage = () => {
   const { categoryId } = useParams();
   // console.log(categoryId);
   const [getCategoryData, setGetCategoryData] = useState({});
-   const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [cpSeeMoreFalse, setCpSeeMoreFalse] = useState(false);
 
   useEffect(() => {
     const getCategoryAxioss = async () => {
@@ -15,7 +16,6 @@ const CategoryPage = () => {
         const { data: postData } = await axioss.get(`category/${categoryId}`);
         setGetCategoryData(postData);
         // console.log(postData);
-            
       } catch (err) {
         // console.log(err);
       }
@@ -25,10 +25,17 @@ const CategoryPage = () => {
   });
   // console.log(getCategoryData);
 
-    const handleSearchInputChange = (event) => {
-      setSearchInput(event.target.value);
-    };
-    // console.log(searchInput);
+  const handleSearchInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  const smClickedFunc = () => {
+    setCpSeeMoreFalse(true);
+  };
+  const smClickedFuncReverse = () => {
+    setCpSeeMoreFalse(false);
+  };
+  // console.log(searchInput);
 
   return (
     <section className="category-page">
@@ -56,7 +63,18 @@ const CategoryPage = () => {
             categoryId={categoryId}
             categoryName={getCategoryData.name}
             searchInput={searchInput}
+            seeMoreClickedFalse={cpSeeMoreFalse}
           />
+          {cpSeeMoreFalse ? (
+            <div className="cpmc-see-more">
+              <button onClick={smClickedFuncReverse}>See less...</button>
+            </div>
+          ) : (
+            <div className="cpmc-see-more">
+              <button onClick={smClickedFunc}>See all...</button>
+            </div>
+          )}
+          {/* ahahahah loser such a loser. nah I am not shut yo ass up */}
         </div>
       </div>
     </section>
@@ -66,3 +84,7 @@ const CategoryPage = () => {
 export default CategoryPage;
 
 // apparently done 1 2 3 4567
+
+// on the start of adding the see all
+
+// apparently see more done ...
